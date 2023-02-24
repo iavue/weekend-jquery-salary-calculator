@@ -47,21 +47,19 @@ function addSalary() {
 function render() {
     // Update the DOM with the input values
     // Reset the table where the inputs are/will be
-    $('#salaryTable').empty()
+    $('#employeeInfo').empty()
 
     for(let input of form){
         console.log('New input of the employee salary info:', input);
-        $('#salaryTable').append(`
-            <tr>
-                <td>test</td>
-                <td>${input.lastNameValue}</td>
-                <td>${input.idNumValue}</td>
-                <td>${input.jobTitleValue}</td>
-                <td>${input.annualSalValue}</td>
-                    <button class="deleteBtn">
+        $('#employeeInfo').append(`
+                <td>${input.firstName}</td>
+                <td>${input.lastName}</td>
+                <td>${input.idNum}</td>
+                <td>${input.jobTitle}</td>
+                <td>${input.annualSal}</td>
+                <td><button class="deleteBtn">
                         Delete
-                    </button>
-            </tr>
+                    </button></td>
         `);
     }
 }
