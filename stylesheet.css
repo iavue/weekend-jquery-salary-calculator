@@ -1,0 +1,21 @@
+input {
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+    font-size: 18px;
+}
+button {
+    font-size: 18px;
+    padding: 8px 14px;
+}
+
+table, td {
+    font-size: 18px;
+    border: 1px solid black;
+}
+td {
+    padding: 8px 14px;
+}
