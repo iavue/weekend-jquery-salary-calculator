@@ -10,5 +10,43 @@
 </head>
 <body>
     <h1>jQuery Salary Calculator</h1>
+
+    <!-- Form with input fields for: 
+    Employee First Name
+    Employee Last Name
+    ID Number
+    Job Title
+    Annual Salary
+
+    And a 'submit' button
+    -->
+    <div id="addSalaryForm">
+        <h2>Add Salary Form</h2>
+        <label>First Name:</label>
+        <input placeholder="firstName" id="firstNameInput" type="text">
+
+        <label>Last Name:</label>
+        <input placeholder="lastName" id="lastNameInput" type="text">
+
+        <label>ID Number:</label>
+        <input placeholder="idNum" id="idNumInput" type="number">
+
+        <label>Job Title:</label>
+        <input placeholder="jobTitle" id="jobTitleInput" type="text">
+
+        <label>Annual Salary:</label>
+        <input placeholder="annualSal" id="annualSalInput" type="number">
+
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <!-- Table of inputs -->
+    <table id="salaryTable">
+        <tr>
+            <td>
+                <!-- Employee info and salary input to render from state -->
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
