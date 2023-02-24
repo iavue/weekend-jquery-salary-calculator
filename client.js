@@ -51,7 +51,8 @@ function render() {
 
     for(let input of form){
         console.log('New input of the employee salary info:', input);
-        $('#employeeInfo').append(`
+        $('#salaryTable').append(`
+            <tr>
                 <td>${input.firstName}</td>
                 <td>${input.lastName}</td>
                 <td>${input.idNum}</td>
@@ -60,6 +61,7 @@ function render() {
                 <td><button class="deleteBtn">
                         Delete
                     </button></td>
+            </tr>
         `);
     }
 }
