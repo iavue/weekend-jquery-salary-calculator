@@ -41,7 +41,19 @@ function addSalary() {
 
     // Render the DOM after new input is added
         // Re-render when new car is added
-    render()
+    render();
+
+    // Reset input fields
+    resetInputFields();
+}
+
+function resetInputFields() {
+    console.log('Inside of resetInputFields()');
+    $('#firstNameInput').val("");
+    $('#lastNameInput').val("");
+    $('#idNumInput').val("");
+    $('#jobTitleInput').val("");
+    $('#annualSalInput').val("");
 }
 
 function render() {
