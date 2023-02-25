@@ -19,3 +19,7 @@ table, td {
 td {
     padding: 8px 14px;
 }
+
+.monthlyTable {
+    background-color: red;
+}

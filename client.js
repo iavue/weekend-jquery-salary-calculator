@@ -3,9 +3,6 @@ $(document).ready(readyNow);
 const monthlyBudget = 20000;
 let form = []; // might change this variable later
 
-// let monthlyTotal = annualSalTotal / 12;
-// If monthlyTotal > monthlyBudget, make #totalyMonthly red background
-
 function readyNow() {
     console.log("DOM is loaded!");
 
@@ -107,46 +104,33 @@ function render() {
 /* Using the stored information, calculate monthly costs and append this to 
 the DOM. If the total monthly cost exceeds $20,000, add a red background 
 color to the total monthly cost. 
-
-- Target all of the annual salary properties from the form[], 
-- add them together then divide by 12
-- then append to #totalMonthly table
-- If the total > 20000
-- make #totalMonthly table in to a red background color
-
-*/
+To Do:
+- Loop through form[] to add annual salary properties 
+- Add them together then divide by 12
+- Then append to #totalMonthly table
+- If the totalMonthly > monthlyBudget, make #tableForTotalyMonthly table in to a red background color */
 
 function calcMonthlyCosts() {
     console.log('Inside calcMonthlyCosts()');
     
-    // Create empty array to store the salaries
+    // Create variable set to 0 to calculate salaries
     let annualSalTotal = 0;
-    // console.log('The salaries object before adding input:', salaries);
-    // form.salary = $('#annualSalInput').val();
-    // Get the input of salaries
-    // const annualSalValue = form.annualSal
+    
+    // Loop through the form[] to add annualSal
     for (let i = 0; i < form.length; i++) {
-        annualSalTotal += form[i].annualSal;
-        
-        // salaries = $('#annualSalInput').val();
-        console.log('The salaries added together:', annualSalTotal);
-        }
+        annualSalTotal += Number(form[i].annualSal);  // Convert string 'annualSal' to number so we can calculate.
+    }
+    
+    console.log('The salaries added together:', annualSalTotal);
 
-    // Put the input salary in to the salaries array
-    // salaries = annualSalValue
-    // console.log('The salaries array after adding input:', salaries);
+    // Calculate the monthly total by dividing the annualSalTotal by 12
+    let monthlyTotal = annualSalTotal / 12;
 
-    // for (let {annualSal} of form) {
-    //     console.log('annualSal property:', annualSal);
-    //     let allSalaries = [];
+    $('#totalMonthly').empty();
+    $('#totalMonthly').append( monthlyTotal );
 
-    // }
-
-    $('#totalMonthly').empty()
-
-    $('#totalMonthly').append(`
-            <tr>
-                <td>Total Monthly:</t>
-            </tr>
-            `);
+    // If monthlyTotal > monthlyBudget, make #tableForTotalyMonthly a red background
+    if (monthlyTotal > monthlyBudget) {
+        $('#tableForTotalMonthly').addClass("monthlyTable");
+    }
 }

@@ -43,11 +43,23 @@
     <br>
     <!-- Table of inputs -->
     <table id="tableOfInputs">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID Number</th>
+            <th>Job Title</th>
+            <th>Annual Salary</th>
+        </tr>
         <!-- table header and submission input goes here after render() -->
     </table>
     <br>
-    <h3>
-        Total Monthly: $<span id ="totalMonthly">TOTALMONTHLY</span>
-    </h3>
+    <!-- Table to display the Total Monthly and make it turn red if totalyMonthly > 20,000 -->
+    <table id="tableForTotalMonthly">
+        <tr>
+            <td>
+                <h3>Total Monthly: $<span id ="totalMonthly">TOTALMONTHLY</span></h3>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
