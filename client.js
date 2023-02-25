@@ -1,6 +1,10 @@
 $(document).ready(readyNow);
 
-let form = []; // might change the name later
+const monthlyBudget = 20000;
+let form = []; // might change this variable later
+
+// let monthlyTotal = annualSalTotal / 12;
+// If monthlyTotal > monthlyBudget, make #totalyMonthly red background
 
 function readyNow() {
     console.log("DOM is loaded!");
@@ -9,9 +13,9 @@ function readyNow() {
     $('#submitBtn').on('click', addSalary)
 }
 
+
 function addSalary() {
     console.log('Inside of addSalary');
-    console.log('Form[] before input is added:', form);
 
     // Get input values and store in variables
     const firstNameValue = $('#firstNameInput').val();
@@ -26,7 +30,8 @@ function addSalary() {
         Job Title: ${jobTitleInput}
         Annual Salary: ${annualSalInput}
         `);
-    
+    /* If input variables (from above) are truthy/valid, put them in 'newInputToAdd' object,
+    and push the object to the global form[]. Else, pop up alert. */
     if (firstNameValue && lastNameValue &&
         idNumValue && jobTitleValue && annualSalValue) {
             
@@ -42,14 +47,14 @@ function addSalary() {
         form.push(newInputToAdd);
         console.log('Form[] after new input added:', form);
 
-        // Render the DOM after new input is added
-         // Re-render when new car is added
+        // Render the DOM after new input is submitted
+         // Re-render when a new input is submitted
         render();
 
-         // Reset input fields
+         // Reset input fields after cicking submit
         resetInputFields();
 
-        // Calculate Monthly Costs
+        // Calculate Monthly Costs after clicking submit
         calcMonthlyCosts();
     } else {
         alert("Inputs are invalid.")
@@ -113,6 +118,29 @@ color to the total monthly cost.
 
 function calcMonthlyCosts() {
     console.log('Inside calcMonthlyCosts()');
+    
+    // Create empty array to store the salaries
+    let annualSalTotal = 0;
+    // console.log('The salaries object before adding input:', salaries);
+    // form.salary = $('#annualSalInput').val();
+    // Get the input of salaries
+    // const annualSalValue = form.annualSal
+    for (let i = 0; i < form.length; i++) {
+        annualSalTotal += form[i].annualSal;
+        
+        // salaries = $('#annualSalInput').val();
+        console.log('The salaries added together:', annualSalTotal);
+        }
+
+    // Put the input salary in to the salaries array
+    // salaries = annualSalValue
+    // console.log('The salaries array after adding input:', salaries);
+
+    // for (let {annualSal} of form) {
+    //     console.log('annualSal property:', annualSal);
+    //     let allSalaries = [];
+
+    // }
 
     $('#totalMonthly').empty()
 
@@ -121,25 +149,4 @@ function calcMonthlyCosts() {
                 <td>Total Monthly:</t>
             </tr>
             `);
-    
-    // Create new object of salaries
-    let salaries = {};
-    console.log('The salaries object before adding input:', salaries);
-    form.salary = $('#annualSalInput').val();
-    // Get the input of salaries
-    // const annualSalValue = form.annualSal
-    for (let i = 0; i < form.length; i++) {
-        const element = form[i];
-        
-    }
-
-    // Put the input salary in to the salaries array
-    salaries = annualSalValue
-    console.log('The salaries array after adding input:', salaries);
-
-    // for (let {annualSal} of form) {
-    //     console.log('annualSal property:', annualSal);
-    //     let allSalaries = [];
-
-    // }
 }
