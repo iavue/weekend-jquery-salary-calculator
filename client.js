@@ -8,6 +8,9 @@ function readyNow() {
 
     // Listener for submit button
     $('#submitBtn').on('click', addSalary)
+
+    // Listener for delete button
+    $('#tableOfInputs').on('click', '#deleteBtn', deleteEmployee)
 }
 
 
@@ -54,12 +57,15 @@ function addSalary() {
         // Calculate Monthly Costs after clicking submit
         calcMonthlyCosts();
     } else {
+        // Pop up alert that inputs are invalid if not all inputs are in
         alert("Inputs are invalid.")
     }
 }
 
+// Clear the input fields after clicking submit
 function resetInputFields() {
     console.log('Inside of resetInputFields()');
+    // Use .val to get the inputs and set inputs to empty
     $('#firstNameInput').val("");
     $('#lastNameInput').val("");
     $('#idNumInput').val("");
@@ -67,12 +73,11 @@ function resetInputFields() {
     $('#annualSalInput').val("");
 }
 
+// Update the DOM with the input values
 function render() {
-    // Update the DOM with the input values
-
     // Reset the table where the inputs are/will be
     $('#tableOfInputs').empty()
-
+    // Then add the table header back
     $('#tableOfInputs').append(`
             <tr>
                 <th>First Name</th>
@@ -82,7 +87,7 @@ function render() {
                 <th>Annual Salary</th>
             </tr>
             `);
-
+    // And also add the new input(s) with a delete button using a loop
     for(let input of form){
         console.log('New input of the employee salary info:', input);
         $('#tableOfInputs').append(`
@@ -92,7 +97,7 @@ function render() {
                 <td>${input.idNum}</td>
                 <td>${input.jobTitle}</td>
                 <td>${input.annualSal}</td>
-                <td><button class="deleteBtn">
+                <td><button id="deleteBtn">
                         Delete
                     </button></td>
             </tr>
@@ -113,10 +118,10 @@ To Do:
 function calcMonthlyCosts() {
     console.log('Inside calcMonthlyCosts()');
     
-    // Create variable set to 0 to calculate salaries
+    // Create variable set to 0 so we can calculate salaries in the loop
     let annualSalTotal = 0;
     
-    // Loop through the form[] to add annualSal
+    // Loop through the form[] to add annualSal properties to annualSalTotal
     for (let i = 0; i < form.length; i++) {
         annualSalTotal += Number(form[i].annualSal);  // Convert string 'annualSal' to number so we can calculate.
     }
@@ -133,4 +138,27 @@ function calcMonthlyCosts() {
     if (monthlyTotal > monthlyBudget) {
         $('#tableForTotalMonthly').addClass("monthlyTable");
     }
+}
+
+function deleteEmployee() {
+    console.log('Inside deleteEmployee()');
+    // Create an empty array that will replace form[]
+    let newForm = [];
+
+    const employeeToDelete = $(this).parent().siblings().first().text();
+    console.log('The employee input being deleted:', employeeToDelete);
+
+    // Loop through form[] and add any items that do not match employeeToDelete
+    for (const employee of form) {
+        console.log('Checking if this employee should be deleted:', employee);
+        if (employee.firstName !== employeeToDelete) {
+            console.log('Employee input not going to be deleted and aded to newForm[]', employee);
+            newForm.push(employee);
+        }
+    }
+    // Replace form[] to newForm[] except for the employee that was deleted (using the firstName)
+    form = newForm;
+
+    // Call render
+    render()
 }
