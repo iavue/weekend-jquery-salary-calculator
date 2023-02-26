@@ -23,22 +23,32 @@
     -->
     <div id="addSalaryForm">
         <h2>Add Employee</h2>
-        <label>First Name:</label>
-        <input placeholder="First Name" id="firstNameInput" type="text">
+        <div class="inline">
+            <label>First Name</label>
+            <input placeholder="First Name" id="firstNameInput" type="text">
+        </div>
 
-        <label>Last Name:</label>
-        <input placeholder="Last Name" id="lastNameInput" type="text">
+        <div class="inline">
+            <label>Last Name</label>
+            <input placeholder="Last Name" id="lastNameInput" type="text">
+        </div>
 
-        <label>ID Number:</label>
-        <input placeholder="ID Num" id="idNumInput" type="number">
+        <div class="inline">
+            <label>ID Number</label>
+            <input placeholder="ID Num" id="idNumInput" type="number">
+        </div>
 
-        <label>Job Title:</label>
+        <div class="inline">
+        <label>Job Title</label>
         <input placeholder="Job Title" id="jobTitleInput" type="text">
+        </div>
 
-        <label>Annual Salary:</label>
+        <div class="inline">
+        <label>Annual Salary</label>
         <input placeholder="Annual Salary" id="annualSalInput" type="number">
+        </div>
 
-        <button id="submitBtn">Submit</button>
+        <button id="submitBtn" class="button">Submit</button>
     </div>
     <br>
     <!-- Table of inputs -->
@@ -57,7 +67,7 @@
     <table id="tableForTotalMonthly">
         <tr>
             <td>
-                <h3>Total Monthly: $<span id ="totalMonthly">TOTALMONTHLY</span></h3>
+                <h3>Total Monthly: $<span id ="totalMonthly"></span></h3>
             </td>
         </tr>
     </table>

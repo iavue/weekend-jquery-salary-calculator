@@ -97,7 +97,7 @@ function render() {
                 <td>${input.idNum}</td>
                 <td>${input.jobTitle}</td>
                 <td>${input.annualSal}</td>
-                <td><button id="deleteBtn">
+                <td><button id="deleteBtn" class="button">
                         Delete
                     </button></td>
             </tr>

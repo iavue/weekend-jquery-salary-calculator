@@ -1,25 +1,62 @@
+body {
+    font-family:  sans-serif;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+#addSalaryForm {
+    border: 1px solid #7e7e7e;
+    width: 65rem;
+    padding: 12px;
+}
+
 input {
     font-size: 16px;
     padding: 8px;
-    margin-bottom: 10px;
-}
-label {
-    display: block;
-    font-size: 18px;
-}
-button {
-    font-size: 18px;
-    padding: 8px 14px;
+    margin-bottom: 5px;
+    border: 2px solid #2980B9;
+    border-radius: 5px;
 }
 
-table, td {
-    font-size: 18px;
-    border: 1px solid black;
+label {
+    display: block;
+    font-size: 14px;
 }
-td {
+
+.button {
+    font-size: 14px;
     padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .monthlyTable {
     background-color: red;
+    border: 1px solid black;
+    width: 25rem;
+}
+
+.inline {
+    display: inline-block;
+}
+
+#tableOfInputs {
+    text-align: left;
+    font-size: 18px;
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 12px 40px;
+}
+
+th {
+    background-color: #30a1ec;
+}
+
+#tableForTotalMonthly {
+    border: 1px solid black;
+    width: 25rem;
 }
