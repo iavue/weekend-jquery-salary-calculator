@@ -132,7 +132,7 @@ function calcMonthlyCosts() {
     let monthlyTotal = annualSalTotal / 12;
 
     $('#totalMonthly').empty();
-    $('#totalMonthly').append( monthlyTotal );
+    $('#totalMonthly').append( Math.round(monthlyTotal) ); // Rounded the monthlyTotal
 
     // If monthlyTotal > monthlyBudget, make #tableForTotalyMonthly a red background
     if (monthlyTotal > monthlyBudget) {
